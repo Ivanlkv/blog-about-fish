@@ -27,7 +27,7 @@ This project is built using the following technologies:
 
 Ivan Lukanov – [@Ivan_Lukanov_](https://x.com/Ivan_Lukanov_)
 
-Project Link: [https://github.com/Vocatann/blog-about-fish](https://github.com/Vocatann/blog-about-fish)
+Project Link: [https://github.com/Ivanlkv/blog-about-fish](https://github.com/Ivanlkv/blog-about-fish)
 
 ---
 
