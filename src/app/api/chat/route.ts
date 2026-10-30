@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     const messages: BotChatMessage[] = [{ role: 'system', content: systemPrompt}, ...chatLog.slice(-15)]
 
     const completion = await openai.chat.completions.create({
-      model: 'gpt-4.1-nano',
+      model: 'gpt-6-luna',
       messages: messages,
       max_tokens: 300,
     });
