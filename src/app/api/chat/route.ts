@@ -9,17 +9,23 @@ export async function POST(request: Request) {
   try {
     const { chatLog }: { chatLog: BotChatMessage[] } = await request.json();
 
-    const messages: BotChatMessage[] = [{ role: 'system', content: systemPrompt}, ...chatLog.slice(-15)]
+    const input = [
+      {
+        role: "system" as const,
+        content: systemPrompt,
+      },
+      ...chatLog.slice(-15),
+    ];
 
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-6-luna',
-      messages: messages,
-      max_tokens: 300,
+    const response = await openai.responses.create({
+      model: "gpt-6-luna",
+      input,
+      max_output_tokens: 300,
     });
 
     return NextResponse.json({
       success: true,
-      message: completion.choices[0].message.content,
+      message: response.output_text,
     });
   } catch (err: unknown) {
     console.error("OpenAI API error:", err);
